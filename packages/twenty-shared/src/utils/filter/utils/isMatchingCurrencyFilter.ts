@@ -10,6 +10,9 @@ const isMatchingCurrencyCodeFilter = (
     case currencyCodeFilter?.in !== undefined: {
       return isNonEmptyString(value) && currencyCodeFilter.in.includes(value);
     }
+    case currencyCodeFilter?.eq !== undefined: {
+      return value === currencyCodeFilter.eq;
+    }
     case currencyCodeFilter?.is !== undefined: {
       if (currencyCodeFilter.is === 'NULL') {
         return value === null;
